@@ -18,9 +18,8 @@
         }
         img {
             width: 100%;
-            height: 50%;
+            height: auto;
             display: block;
-            object-fit: contain;
             background: black;
         }
     </style>
@@ -29,35 +28,42 @@
     <h1>Camera Streams</h1>
     <button onclick="showRandomCams()">RANDOM CAMS</button>
     <div id="streams-container" class="container">
-        <!-- Random cameras will be injected here -->
+        {% for camera in cameras %}
+        <div class="stream">
+            <h2>{{ camera.name }}</h2>
+            <p>Color Stream:</p>
+            <img src="{{ camera.color_stream }}" alt="Color Stream">
+            <p>IR Stream:</p>
+            <img src="{{ camera.ir_stream }}" alt="IR Stream">
+        </div>
+        {% endfor %}
     </div>
 
 <script>
-const allCameras = {{ cameras|tojson }};
-
 function showRandomCams() {
-    const container = document.getElementById('streams-container');
-    container.innerHTML = ''; // Clear previous streams
+    fetch('/api/random')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('streams-container');
+            container.innerHTML = ''; // Clear existing streams
 
-    const shuffledCams = allCameras.sort(() => 0.5 - Math.random());
-    const randomCams = shuffledCams.slice(0, 2); // Get 3 random cameras
+            data.forEach(camera => {
+                const streamDiv = document.createElement('div');
+                streamDiv.className = 'stream';
 
-    randomCams.forEach(camera => {
-        const streamDiv = document.createElement('div');
-        streamDiv.className = 'stream';
+                streamDiv.innerHTML = `
+                    <h2>${camera.name}</h2>
+                    <p>Color Stream:</p>
+                    <img src="${camera.color_stream}" alt="Color Stream">
+                    <p>IR Stream:</p>
+                    <img src="${camera.ir_stream}" alt="IR Stream">
+                `;
 
-        streamDiv.innerHTML = `
-            <h2>${camera.name}</h2>
-            <p>Color Stream:</p>
-            <img src="${camera.color_stream}" alt="Color Stream">
-            <p>IR Stream:</p>
-            <img src="${camera.ir_stream}" alt="IR Stream">
-        `;
-
-        container.appendChild(streamDiv);
-    });
+                container.appendChild(streamDiv);
+            });
+        })
+        .catch(error => console.error('Error fetching random cameras:', error));
 }
 </script>
-
 </body>
 </html>

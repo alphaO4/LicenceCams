@@ -1,0 +1,107 @@
+[
+    {
+        "name": "166.152.44.50",
+        "color_stream": "http://166.152.44.50:8080/cam0color",
+        "ir_stream": "http://166.152.44.50:8080/cam1ir"
+    },
+    {
+        "name": "166.169.33.198",
+        "color_stream": "http://166.169.33.198:8080/cam0color",
+        "ir_stream": "http://166.169.33.198:8080/cam0ir"
+    },
+    {
+        "name": "63.47.2.166",
+        "color_stream": "http://63.47.2.166:8080/cam0color",
+        "ir_stream": "http://63.47.2.166:8080/cam0ir"
+    },
+    {
+        "name": "166.141.100.136",
+        "color_stream": "http://166.141.100.136:8080/cam0color",
+        "ir_stream": "http://166.141.100.136:8080/cam1ir"
+    },
+    {
+        "name": "166.152.44.55",
+        "color_stream": "http://166.152.44.55:8080/cam0color",
+        "ir_stream": "http://166.152.44.55:8080/cam0ir"
+    },
+    {
+        "name": "166.139.39.246",
+        "color_stream": "http://166.139.39.246:8080/cam0color",
+        "ir_stream": "http://166.139.39.246:8080/cam1ir"
+    },
+    {
+        "name": "166.159.168.146",
+        "color_stream": "http://166.159.168.146:8080/cam0color",
+        "ir_stream": "http://166.159.168.146:8080/cam1ir"
+    },
+    {
+        "name": "166.159.168.84",
+        "color_stream": "http://166.159.168.84:8080/cam0color",
+        "ir_stream": "http://166.159.168.84:8080/cam5ir"
+    },
+    {
+        "name": "166.168.145.175",
+        "color_stream": "http://166.168.145.175:8080/cam0color",
+        "ir_stream": "http://166.168.145.175:8080/cam2ir"
+    },
+    {
+        "name": "166.155.207.147",
+        "color_stream": "http://166.155.207.147:8080/cam0color",
+        "ir_stream": "http://166.155.207.147:8080/cam5ir"
+    },
+    {
+        "name": "166.155.205.253",
+        "color_stream": "http://166.155.205.253:8080/cam0color",
+        "ir_stream": "http://166.155.205.253:8080/cam0ir"
+    },
+    {
+        "name": "63.41.135.182",
+        "color_stream": "http://63.41.135.182:8080/cam0color",
+        "ir_stream": "http://63.41.135.182:8080/cam2ir"
+    },
+    {
+        "name": "166.180.59.229",
+        "color_stream": "http://166.180.59.229:8080/cam0color",
+        "ir_stream": "http://166.180.59.229:8080/cam0ir"
+    },
+    {
+        "name": "63.47.150.140",
+        "color_stream": "http://63.47.150.140:8080/cam0color",
+        "ir_stream": "http://63.47.150.140:8080/cam0ir"
+    },
+    {
+        "name": "166.146.20.160",
+        "color_stream": "http://166.146.20.160:8080/cam0color",
+        "ir_stream": "http://166.146.20.160:8080/cam0ir"
+    },
+    {
+        "name": "166.153.248.230",
+        "color_stream": "http://166.153.248.230:8080/cam0color",
+        "ir_stream": "http://166.153.248.230:8080/cam1ir"
+    },
+    {
+        "name": "166.152.44.39",
+        "color_stream": "http://166.152.44.39:8080/cam0color",
+        "ir_stream": "http://166.152.44.39:8080/cam0ir"
+    },
+    {
+        "name": "166.159.168.170",
+        "color_stream": "http://166.159.168.170:8080/cam0color",
+        "ir_stream": "http://166.159.168.170:8080/cam1ir"
+    },
+    {
+        "name": "166.139.59.233",
+        "color_stream": "http://166.139.59.233:8080/cam0color",
+        "ir_stream": "http://166.139.59.233:8080/cam0ir"
+    },
+    {
+        "name": "166.141.100.132",
+        "color_stream": "http://166.141.100.132:8080/cam0color",
+        "ir_stream": "http://166.141.100.132:8080/cam0ir"
+    },
+    {
+        "name": "166.155.208.51",
+        "color_stream": "http://166.155.208.51:8080/cam0color",
+        "ir_stream": "http://166.155.208.51:8080/cam0ir"
+    }
+]
