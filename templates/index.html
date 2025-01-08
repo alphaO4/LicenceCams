@@ -32,14 +32,40 @@
         <div class="stream">
             <h2>{{ camera.name }}</h2>
             <p>Color Stream:</p>
-            <img src="/proxy?url={{ camera.color_stream }}" alt="Color Stream">
+            <img src="/proxy?url={{ camera.color_stream }}" alt="Color Stream" onerror="reloadStream(this)">
             <p>IR Stream:</p>
-            <img src="/proxy?url={{ camera.ir_stream }}" alt="IR Stream">
+            <img src="/proxy?url={{ camera.ir_stream }}" alt="IR Stream" onerror="reloadStream(this)">
         </div>
         {% endfor %}
     </div>
 
 <script>
+/**
+ * Reloads a failed image stream by replacing its source URL.
+ * Retries up to 3 times to prevent infinite loops in case of permanent issues.
+ */
+function reloadStream(imageElement) {
+    if (!imageElement.dataset.retryCount) {
+        imageElement.dataset.retryCount = 0; // Initialize retry count
+    }
+
+    const retryCount = parseInt(imageElement.dataset.retryCount, 10);
+
+    if (retryCount < 10) {
+        console.warn(`Reloading stream: ${imageElement.src} (Retry ${retryCount + 1}/10)`);
+        imageElement.dataset.retryCount = retryCount + 1;
+
+        const currentUrl = new URL(imageElement.src);
+        imageElement.src = currentUrl.toString();
+    } else {
+        console.error(`Stream failed to load after 10 retries: ${imageElement.src}`);
+        imageElement.alt = "Stream unavailable.";
+    }
+}
+
+/**
+ * Fetch new random cameras and update the display dynamically.
+ */
 function showRandomCams() {
     fetch('/api/random')
         .then(response => response.json())
@@ -54,9 +80,9 @@ function showRandomCams() {
                 streamDiv.innerHTML = `
                     <h2>${camera.name}</h2>
                     <p>Color Stream:</p>
-                    <img src="/proxy?url=${camera.color_stream}" alt="Color Stream">
+                    <img src="/proxy?url=${camera.color_stream}" alt="Color Stream" onerror="reloadStream(this)">
                     <p>IR Stream:</p>
-                    <img src="/proxy?url=${camera.ir_stream}" alt="IR Stream">
+                    <img src="/proxy?url=${camera.ir_stream}" alt="IR Stream" onerror="reloadStream(this)">
                 `;
 
                 container.appendChild(streamDiv);
