@@ -32,9 +32,9 @@
         <div class="stream">
             <h2>{{ camera.name }}</h2>
             <p>Color Stream:</p>
-            <img src="{{ camera.color_stream }}" alt="Color Stream">
+            <img src="/proxy?url={{ camera.color_stream }}" alt="Color Stream">
             <p>IR Stream:</p>
-            <img src="{{ camera.ir_stream }}" alt="IR Stream">
+            <img src="/proxy?url={{ camera.ir_stream }}" alt="IR Stream">
         </div>
         {% endfor %}
     </div>
